@@ -1,0 +1,28 @@
+<div class="example__container">
+  <h3>Default browser behavior</h3>
+  <input type="file" (change)="onFileSelected($event)">
+</div>
+
+<div class="example__container">
+  <h3>Angular-File package</h3>
+  <input type="file" ngf [(files)]="files" multiple />
+  <div ngfSelect multiple="1" [(files)]="files" class="example__selector">
+    Can make custom elements
+  </div>
+  <button *ngIf="files" (click)="ngfChange()">Upload Files</button>
+</div>
+
+<div class="example__container">
+  <h3>NGX Uploader</h3>
+  <input
+    type="file"
+    ngFileSelect
+    [options]="options"
+    (uploadOutput)="onUploadOutput($event)"
+    [uploadInput]="uploadInput"
+    multiple
+  />
+  <button type="button" class="start-upload-btn" (click)="startUpload()">
+    Start Upload
+  </button>
+</div>

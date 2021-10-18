@@ -1,0 +1,14 @@
+.example__container:not(:first-child) {
+    margin-top: 5rem;
+}
+
+.example__selector {
+    background-color: lightblue;
+    border: 1px black solid;
+    height: 50px;
+    width: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
