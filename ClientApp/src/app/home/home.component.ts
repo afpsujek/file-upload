@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, EventEmitter, Inject } from '@angular/core';
-//import { ngf } from 'angular-file';
-//import { NgxFileDropEntry, FileSystemFileEntry } from 'ngx-file-drop';
+import { ngf } from 'angular-file';
+import { NgxFileDropEntry, FileSystemFileEntry } from 'ngx-file-drop';
 import { UploaderOptions, UploadFile, UploadInput, UploadOutput } from 'ngx-uploader';
 
 @Component({
@@ -12,8 +12,8 @@ import { UploaderOptions, UploadFile, UploadInput, UploadOutput } from 'ngx-uplo
 export class HomeComponent {
 
   //Angular-File variables
-  // files: File[] = [];
-  // file: File;
+  files: File[] = [];
+  file: File;
 
   //ngx-uploader variables
   options: UploaderOptions = {
@@ -41,18 +41,18 @@ export class HomeComponent {
   }
 
   // Upload logic for the Angular-File package
-  // ngfChange() {
-  //   if(this.files) {
-  //     const formData = new FormData();
-  //     this.files.forEach(file => {
-  //       formData.append('file', file, file.name);
-  //     });
-  //     const upload$ = this.http.post(this.baseUrl + 'FileUpload', formData);
-  //     upload$.subscribe(resp => {
-  //       console.log(resp);
-  //     });
-  //   }
-  // }
+  ngfChange() {
+    if(this.files) {
+      const formData = new FormData();
+      this.files.forEach(file => {
+        formData.append('file', file, file.name);
+      });
+      const upload$ = this.http.post(this.baseUrl + 'FileUpload', formData);
+      upload$.subscribe(resp => {
+        console.log(resp);
+      });
+    }
+  }
 
   onUploadOutput(output: UploadOutput): void {
     console.log(output)
@@ -114,21 +114,21 @@ export class HomeComponent {
   }
 
   // For the file drop package
-  // fileDropFn(event: NgxFileDropEntry[]) {
-  //   var selectedFile = event[0].fileEntry
-  //   // User didn't upload a directory
-  //   if (selectedFile.isFile) {
-  //     // have to convert it to an actual file entry 
-  //     const fileEntry = selectedFile as FileSystemFileEntry;
-  //     // this is truly ugly
-  //     fileEntry.file((file: File) => {
-  //       const formData = new FormData();
-  //       formData.append('file', file, selectedFile.name);
-  //       const upload$ = this.http.post(this.baseUrl + 'FileUpload', formData);
-  //       upload$.subscribe(resp => {
-  //         console.log(resp);
-  //       });
-  //     });
-  //   }
-  // }
+  fileDropFn(event: NgxFileDropEntry[]) {
+    var selectedFile = event[0].fileEntry
+    // User didn't upload a directory
+    if (selectedFile.isFile) {
+      // have to convert it to an actual file entry 
+      const fileEntry = selectedFile as FileSystemFileEntry;
+      // this is truly ugly
+      fileEntry.file((file: File) => {
+        const formData = new FormData();
+        formData.append('file', file, selectedFile.name);
+        const upload$ = this.http.post(this.baseUrl + 'FileUpload', formData);
+        upload$.subscribe(resp => {
+          console.log(resp);
+        });
+      });
+    }
+  }
 }
