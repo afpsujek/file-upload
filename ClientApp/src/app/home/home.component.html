@@ -3,14 +3,14 @@
   <input type="file" (change)="onFileSelected($event)">
 </div>
 
-<div class="example__container">
+<!-- <div class="example__container">
   <h3>Angular-File package</h3>
   <input type="file" ngf [(files)]="files" multiple />
   <div ngfSelect multiple="1" [(files)]="files" class="example__selector">
     Can make custom elements
   </div>
   <button *ngIf="files" (click)="ngfChange()">Upload Files</button>
-</div>
+</div> -->
 
 <div class="example__container">
   <h3>NGX Uploader</h3>
@@ -26,3 +26,8 @@
     Start Upload
   </button>
 </div>
+
+<!-- <div class="example__container">
+  <h3>NGX File Drop</h3>
+  <ngx-file-drop dropZoneLabel="Drop files here" [showBrowseBtn]="true" multiple="true" (onFileDrop)="fileDropFn($event)"></ngx-file-drop>
+</div> -->

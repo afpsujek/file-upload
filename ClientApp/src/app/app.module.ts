@@ -10,8 +10,9 @@ import { HomeComponent } from './home/home.component';
 import { CounterComponent } from './counter/counter.component';
 import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import { UploadComponent } from './upload/upload.component';
-import { ngfModule } from "angular-file"
+//import { ngfModule } from "angular-file"
 import { NgxUploaderModule } from 'ngx-uploader';
+//import { NgxFileDropModule } from 'ngx-file-drop';
 
 @NgModule({
   declarations: [
@@ -26,8 +27,9 @@ import { NgxUploaderModule } from 'ngx-uploader';
     BrowserModule,
     HttpClientModule,
     FormsModule,
-    ngfModule,
+    //ngfModule,
     NgxUploaderModule,
+    //NgxFileDropModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'counter', component: CounterComponent },
